@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="18.11.0.1">
+<procedure name="main">
+<interface/>
+<body>
+<l>dev_clear_window ()</l>
+<c as_id="image_acquisition" as_name="Image Acquisition 01" as_grp="[2,4]" as_ord="1"> </c>
+<l>read_image (Image2, 'C:/Users/Administrator/Desktop/picture1/1.bmp')</l>
+<l>get_image_size (Image2, Width, Height)</l>
+<l>dev_open_window (0, 0, Width, Height, 'black', WindowHandle)</l>
+<l>dev_display (Image2)</l>
+<l>threshold (Image2, Region, 120, 200)</l>
+<l>connection (Region, ConnectedRegions)</l>
+<l>shape_trans (ConnectedRegions, RegionTrans, 'rectangle2')</l>
+<l>select_shape (RegionTrans, SelectedRegions, 'area', 'and', 0, 1000000)</l>
+<l>smallest_rectangle2(SelectedRegions, Row, Column, Phi, hwidth, hheigth) </l>
+<c></c>
+<l>threshold (Image2, Region1, 240, 255)</l>
+<l>connection (Region1, ConnectedRegions1)</l>
+<l>select_shape (ConnectedRegions1, SelectedRegions1, 'area', 'and', 0, 10000)</l>
+<l>area_center (SelectedRegions1, Area1, Row1, Column1)</l>
+<c></c>
+<l>dev_clear_window ()</l>
+<l>dev_display (Image2)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
